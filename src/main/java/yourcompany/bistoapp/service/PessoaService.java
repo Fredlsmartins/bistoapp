@@ -30,7 +30,7 @@ public class PessoaService {
     }
 
     public PessoaDTO update ( Long id, PessoaDTO dto) {
-        pessoaRepository.findById(id).orElseThrow(()-> new RuntimeException("Ta errado picareta"));
+        pessoaRepository.findById(id).orElseThrow(()-> new RuntimeException("O usuário não existe"));
         var update = pessoaMapper.toEntity (dto);
        var updated = pessoaRepository.save(update);
        var updateConversao = pessoaMapper.toDTO (updated);
